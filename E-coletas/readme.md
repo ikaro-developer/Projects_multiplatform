@@ -15,15 +15,20 @@
 
 ### Web
 
+<div style="display:flex;">
 <img src="./web/readme/image 1.png" alt="@duck_web" height="100">
 <img src="./web/readme/image 2.png" alt="@duck_web" height="100">
 <img src="./web/readme/image 3.png" alt="@duck_web" height="100">
+</div>
 
 ### Mobile
 
+<div style="display:flex;">
 <img src="./mobile/readme/image 1.jpeg" alt="@duck_web" height="200">
 <img src="./mobile/readme/image 2.png" alt="@duck_web" height="200">
 <img src="./mobile/readme/image 3.jpeg" alt="@duck_web" height="200">
+
+</div>
 
 ## Web:
 

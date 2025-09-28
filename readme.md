@@ -31,7 +31,7 @@ Abaixo você encontra uma lista de projetos Multiplataforma desenvolvidos, com d
 
 ### Web
 
-<div >
+<div  align="center">
    <img src="./E-coletas/web/readme/image 1.png" alt="Ecoleta Web" height="120">
    <img src="./E-coletas/web/readme/image 2.png" alt="Ecoleta Web" height="120">
    <img src="./E-coletas/web/readme/image 3.png" alt="Ecoleta Web" height="120">
