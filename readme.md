@@ -1,6 +1,6 @@
 <p align="center">
    <a href="https://github.com/duck-developer">
-      <img src="./readme/duck.web.png" alt="@Duck.Web" width="140" style="border-radius: 50%;" />
+      <img src="https://avatars.githubusercontent.com/u/167935329?v=4" alt="@Duck.Web" width="140" style="border-radius: 50%;" />
    </a>
 </p>
 
