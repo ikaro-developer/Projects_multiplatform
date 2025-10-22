@@ -51,6 +51,42 @@ Abaixo você encontra uma lista de projetos Multiplataforma desenvolvidos, com d
    </a>
 </div>
 
+## 🧬 GeneAll
+
+<div align="center" style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+  <p style="max-width:600px; text-align:center;">
+ erenciador de Doenças Raras é uma plataforma voltada para profissionais de saúde, que auxilia na interpretação de exames clínicos e complementares, facilitando o diagnóstico de doenças genéticas raras
+  </p>
+</div>
+
+### Web
+
+<div  align="center">
+   <img src="./GeneAll_UnexMed/readme/web/image 1.png" alt="Ecoleta Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 2.png" alt="Ecoleta Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 3.png" alt="Ecoleta Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 4.png" alt="Ecoleta Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 5.png" alt="Ecoleta Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 6.png" alt="Ecoleta Web" height="120">
+</div>
+
+### Mobile
+
+<div align="center">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 1.jpeg" alt="Ecoleta Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 2.jpeg" alt="Ecoleta Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 3.jpeg" alt="Ecoleta Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 4.jpeg" alt="Ecoleta Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 5.jpeg" alt="Ecoleta Web" height="300">
+
+</div>
+
+<div align="center">
+   <a href="https://github.com/ikaro-developer/Projects_multiplatform/tree/main/GeneAll_UnexMed">
+      <img src="https://img.shields.io/badge/GitHub-Acessar_Projeto-181717?style=for-the-badge&logo=github" alt="GitHub Link">
+   </a>
+</div>
+
 ---
 
 # 👤 Autor
