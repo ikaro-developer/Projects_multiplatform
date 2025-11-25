@@ -17,29 +17,20 @@ import {
 } from "@/components/ui/card";
 import { ChartContainer } from "@/components/ui/chart";
 
-interface ChartConfig {
-  [key: string]: {
-    label: string;
-    color: string;
-  };
-}
+//utils
+import { useFinance } from "@/utils/finance/useFinance";
 
 interface ChartMensalFinanceiroProps {
   title: string;
   description: string;
-  data: Array<Record<string, any>>;
-  config: ChartConfig;
-  height?: string; // opcional
+  height?: string;
 }
 
 const ChartMensalFinanceiro = ({
   title,
   description,
-  data,
-  config,
-  height = "h-[400px]",
 }: ChartMensalFinanceiroProps) => {
-  const dataKeys = Object.keys(config);
+  const { data, dataKeys, config } = useFinance();
 
   return (
     <Card className="border border-[#33363D] text-white bg-zinc-800/50 backdrop-blur">
@@ -49,7 +40,7 @@ const ChartMensalFinanceiro = ({
       </CardHeader>
 
       <CardContent className="items-center flex justify-center">
-        <ChartContainer config={config} className={height}>
+        <ChartContainer config={config} className={"h-[400px]"}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data} barGap={6}>
               <CartesianGrid strokeDasharray="3 3" stroke="#444" />
@@ -64,6 +55,7 @@ const ChartMensalFinanceiro = ({
                 itemStyle={{ color: "#fff" }}
               />
               <Legend />
+
               {dataKeys.map((key) => (
                 <Bar
                   key={key}

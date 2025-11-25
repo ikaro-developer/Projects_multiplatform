@@ -11,25 +11,16 @@ import {
 export type PieDataItem = {
   name: string;
   value: number;
+  color: string;
 };
 
 interface ChartFinanceiroProps {
   data: PieDataItem[];
-  colors?: string[]; // cores das fatias
-  height?: number | string; // altura do container (px ou %)
-  showLegend?: boolean;
-  showLabels?: boolean;
 }
 
-const ChartFinanceiro: React.FC<ChartFinanceiroProps> = ({
-  data,
-  colors = ["#32A2AA", "#0EA5E9", "#A855F7", "#F59E0B", "#EF4444"],
-  height = 300,
-  showLegend = true,
-  showLabels = true,
-}) => {
+const ChartFinanceiro: React.FC<ChartFinanceiroProps> = ({ data }) => {
   return (
-    <div style={{ width: "100%", height }}>
+    <div style={{ width: "100%", height: 320 }}>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
@@ -39,18 +30,22 @@ const ChartFinanceiro: React.FC<ChartFinanceiroProps> = ({
             cx="50%"
             cy="50%"
             outerRadius="80%"
-            label={
-              showLabels
-                ? ({ name, percent }) =>
-                    `${name} ${(percent * 100).toFixed(0)}%`
-                : undefined
+            label={({ name, value, percent }) =>
+              `${name} - R$ ${value.toFixed(2)} (${(percent * 100).toFixed(
+                0
+              )}%)`
             }
           >
-            {data.map((_, i) => (
-              <Cell key={`cell-${i}`} fill={colors[i % colors.length]} />
+            {data.map((item, i) => (
+              <Cell key={i} fill={item.color} />
             ))}
           </Pie>
+
           <Tooltip
+            formatter={(value: number, name: string) => [
+              `R$ ${value.toFixed(2)}`,
+              name,
+            ]}
             contentStyle={{
               backgroundColor: "#0b0b0b",
               borderRadius: 8,
@@ -58,7 +53,8 @@ const ChartFinanceiro: React.FC<ChartFinanceiroProps> = ({
             }}
             itemStyle={{ color: "#fff" }}
           />
-          {showLegend && <Legend />}
+
+          <Legend />
         </PieChart>
       </ResponsiveContainer>
     </div>

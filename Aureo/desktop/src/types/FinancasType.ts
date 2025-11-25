@@ -1,34 +1,27 @@
-export type Transaction = {
-  categoria: Category;
+// ===================== REGRAS =====================
+export interface RecurrenceRule {
+  id: string;
+  tipo: "fixed" | "variable" | "fixed-variable";
+  valor_fixo?: number | null;
+  descricao_regra?: string | null;
+}
+
+// ===================== CATEGORIAS =====================
+export interface Category {
+  id: string;
+  recorrencia_id: string;
+  name: string;
+  type: "Despesa" | "Receita";
+  color: string;
+  transactions?: Transaction[];
+}
+
+// ===================== TRANSAÇÕES =====================
+export interface Transaction {
+  id: string;
+  categoria_id: string;
   valor: number;
   description: string;
-  data: Date;
-  comprovantes: string[];
-};
-
-// export interface Transaction {
-//   id: string;
-//   categoryId: string;
-//   amount: number;
-//   description: string;
-//   date: string;
-//   type: TransactionType;
-//   createdAt: string;
-//   isPaid?: boolean;
-//   paidDate?: string;
-//   proofs?: TransactionProof[];
-//   comments?: TransactionComment[];
-// }
-export type Category = {
-  id: string;
-  title: string;
-  type: "Despesa" | "Receita";
-  recorrencia:
-    | "fixed" // Fixo com valor fixo
-    | "variable" // Variável
-    | "fixed-variable"; // Fixo porém valor varia
-  icon: string;
-  color: string;
-
-  transaction?: Transaction[];
-};
+  data: string;
+  comprovantes: string;
+}

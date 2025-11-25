@@ -1,19 +1,24 @@
+import { useContext } from "react";
 import IconsUi from "../ui/IconsUi";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { ContextFinance } from "@/context/FinanceContext";
 
-interface Props {
+interface CardFinancasProps {
   icon: React.ElementType;
   color: "red" | "blue" | "green" | "amber" | "purple";
   text: string;
   value: number;
 }
 
-const CardFinancas = ({ icon, color, text, value }: Props) => {
+const CardFinancas = ({ icon, color, text, value }: CardFinancasProps) => {
+  const { selectedMonth } = useContext(ContextFinance);
   const colorMap: Record<string, string> = {
     red: "text-red-500",
     blue: "text-blue-500",
-    green: "text-green-500",
     amber: "text-amber-500",
     purple: "text-purple-500",
+    green: "text-[#0ECF8A]",
   };
 
   return (
@@ -28,7 +33,10 @@ const CardFinancas = ({ icon, color, text, value }: Props) => {
       <h2 className={`text-xl font-bold ${colorMap[color]}`}>R$ {value}</h2>
 
       {/* Data */}
-      <p className="text-xs text-[#777] mt-1">junho 2025</p>
+      <p className="text-xs text-[#777] mt-1">
+        {" "}
+        {format(selectedMonth, "MMMM yyyy", { locale: ptBR })}
+      </p>
     </div>
   );
 };

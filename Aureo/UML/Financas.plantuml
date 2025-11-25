@@ -1,0 +1,72 @@
+@startuml
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+skinparam classAttributeIconSize 0
+hide methods
+hide circle
+
+title Modelo Entidade-Relacionamento - Controle Financeiro
+
+' ================== ENTIDADES ==================
+Table(Category, "Category") {
+  +id : UUID [PK]
+  --
+  name : VARCHAR(100)
+  type : ENUM('Despesa', 'Receita')
+  color : VARCHAR(20)
+  recorrencia_id : UUID [FK -> RecurrenceRule.id]
+}
+
+Table(RecurrenceRule, "RecurrenceRule") {
+  +id : UUID [PK]
+  --
+  tipo : ENUM('fixed', 'variable', 'fixed-variable')
+  valor_fixo : DECIMAL(10,2) NULL
+  descricao_regra : TEXT
+}
+
+Table(Transaction, "Transaction") {
+  +id : UUID [PK]
+  --
+  categoria_id : UUID [FK -> Category.id]
+  valor : DECIMAL(10,2)
+  description : TEXT
+  data : DATE
+  comprovantes : TEXT
+}
+
+' ================== RELACIONAMENTOS ==================
+RecurrenceRule ||--o{ Category : "define regra"
+Category ||--o{ Transaction : "possui transações"
+
+' ================== EXEMPLOS ==================
+note right of RecurrenceRule
+📅 Exemplos de regras
+
+| id | tipo           | valor_fixo | descricao_regra |
+|----|----------------|-------------|-----------------|
+| R1 | fixed          | 1200.00     | Aluguel fixo mensal |
+| R2 | fixed-variable | NULL        | Internet mensal variável |
+| R3 | variable       | NULL        | Despesa eventual |
+end note
+
+note right of Category
+🗂️ Exemplos de categorias
+
+| id | name        | type    | recorrencia_id |
+|----|-------------|---------|----------------|
+| C1 | Aluguel     | Despesa | R1 |
+| C2 | Internet    | Despesa | R2 |
+| C3 | Alimentação | Despesa | R3 |
+end note
+
+note right of Transaction
+💳 Exemplo de transações
+
+| id | categoria_id | valor | data |
+|----|---------------|--------|--------|
+| T1 | C1 | 1200.00 | 2025-11-01 |
+| T2 | C2 | 130.00  | 2025-11-05 |
+| T3 | C1 | 1200.00 | 2025-12-01 |
+end note
+
+@enduml

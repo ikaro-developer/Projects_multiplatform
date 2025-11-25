@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import {
   PieChart,
   Pie,
@@ -32,7 +31,7 @@ const ChartResumoFinanceiro = ({
         </div>
       ) : (
         <>
-          {/* 🎯 Gráfico de Pizza */}
+          {/* Gráfico */}
           <ResponsiveContainer width="100%" height={200}>
             <PieChart>
               <Pie
@@ -41,36 +40,45 @@ const ChartResumoFinanceiro = ({
                 cy="50%"
                 labelLine={false}
                 outerRadius={60}
-                fill="#8884d8"
                 dataKey="value"
+                label={({ name, percent }) =>
+                  `${name}: ${(percent * 100).toFixed(0)}%`
+                }
               >
                 {summaryData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
+
               <Tooltip
-                formatter={(value: number) => `R$ ${value.toFixed(2)}`}
+                formatter={(value: number, name: string, props: any) => {
+                  const percent = props.payload.percent * 100;
+                  return [
+                    `R$ ${value.toFixed(2)} (${percent.toFixed(0)}%)`,
+                    name,
+                  ];
+                }}
               />
               <Legend />
             </PieChart>
           </ResponsiveContainer>
 
-          {/* 📊 Resumo numérico */}
+          {/* Resumo */}
           <div className="mt-6 space-y-3">
-            <div className="flex justify-between items-center p-3 bg-emerald-500/10 rounded-lg">
+            <div className="flex items-center justify-between gap-1 p-3 bg-emerald-500/10 rounded-lg">
               <span className="font-medium">Total Receitas:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {totalIncome.toFixed(2)}
               </span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-red-500/10 rounded-lg">
-              <span className="font-medium">Total Despesas:</span>
+            <div className="flex items-center justify-between gap-1 p-3 bg-red-500/10 rounded-lg">
+              <span className="font-medium  ">Total Despesas:</span>
               <span className="text-xl font-bold text-red-400">
                 R$ {totalExpense.toFixed(2)}
               </span>
             </div>
             <div
-              className={`flex justify-between items-center p-3 rounded-lg ${
+              className={`flex items-center justify-between gap-1 p-3 rounded-lg ${
                 balance >= 0 ? "bg-emerald-600/20" : "bg-red-600/20"
               }`}
             >
