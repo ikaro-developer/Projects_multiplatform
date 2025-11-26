@@ -6,14 +6,35 @@ import { format } from "date-fns";
 import { TransactionDialog } from "@/components/Financas/TransactionDialogFinancas";
 import { useFinance } from "../../utils/finance/useFinance";
 import { ContextFinance } from "@/context/FinanceContext";
+import { Transaction } from "@/types/FinancasType";
+import { TransactionDetailDialog } from "./TransactionDetailDialog";
 const TransacoesFinanceiro = () => {
   const { category } = useContext(ContextFinance);
   const { transacoesOrdenadas } = useFinance();
 
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [openDetails, setOpenDetails] = useState(false);
+
+  const [selectedTransaction, setSelectedTransaction] = useState<Transaction>();
+
+  function openTransactionDetails(transaction: Transaction) {
+    setSelectedTransaction(transaction);
+    setOpenDetails(true);
+  }
 
   return (
     <>
+      {/* if () { */}
+      {selectedTransaction && (
+        <TransactionDetailDialog
+          open={openDetails}
+          onOpenChange={setOpenDetails}
+          selectTransaction={selectedTransaction}
+          // onBack={() => setOpenDetails(false)}
+        />
+      )}
+
+      {/* } */}
       {/* HEADER */}
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Minhas Transações</h2>
@@ -45,6 +66,7 @@ const TransacoesFinanceiro = () => {
             return (
               <Card
                 key={transaction.id}
+                onClick={() => openTransactionDetails(transaction)}
                 className="p-4 rounded-md bg-zinc-800/40 border border-zinc-700 hover:shadow-md transition cursor-pointer"
               >
                 <div className="flex items-center gap-4">

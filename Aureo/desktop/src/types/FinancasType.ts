@@ -13,7 +13,6 @@ export interface Category {
   name: string;
   type: "Despesa" | "Receita";
   color: string;
-  transactions?: Transaction[];
 }
 
 // ===================== TRANSAÇÕES =====================

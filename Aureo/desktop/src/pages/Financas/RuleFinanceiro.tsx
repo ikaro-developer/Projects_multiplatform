@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Edit, Plus, Trash2 } from "lucide-react";
+import { Plus } from "lucide-react";
 import { ContextFinance } from "@/context/FinanceContext";
 import { Badge } from "@/components/ui/badge";
 import RuleDialog from "@/components/Financas/RuleDialog";

@@ -1,5 +1,3 @@
-import React from "react";
-
 const SenhasHome = () => {
   return <div>SenhasHome</div>;
 };

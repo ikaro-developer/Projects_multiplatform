@@ -23,7 +23,7 @@ export default function CategoriesTab() {
     return (
       <CategoriaDetail
         selectedCategorie={selectedCategory}
-        onBack={setOpenDetails}
+        onBack={() => setOpenDetails(false)}
       />
     );
   }

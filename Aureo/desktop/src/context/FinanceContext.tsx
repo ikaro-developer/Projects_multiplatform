@@ -8,6 +8,7 @@ import type {
 } from "@/types/FinancasType";
 import { createContext, useEffect, useState } from "react";
 //INTERFACE
+
 interface InterfaceContextFinance {
   category: Category[];
   setCategory: React.Dispatch<React.SetStateAction<Category[]>>;
@@ -56,6 +57,7 @@ export const ContextFinanceProvider = ({
   const { getRule } = useSupabaseRules();
 
   const [selectedMonth, setSelectedMonth] = useState<Date>(new Date());
+
   useEffect(() => {
     async function load() {
       setTransaction(await getTransactions());

@@ -30,7 +30,7 @@ export default function CategoriaDetail({
   );
 
   return (
-    <div className="min-h-screen bg-zinc-900 text-white p-6">
+    <div className=" text-white p-6 ">
       {/* HEADER */}
       <div className="flex items-center gap-4">
         <Button
