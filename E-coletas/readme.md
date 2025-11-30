@@ -1,6 +1,6 @@
 <p align="center">
    <a href="https://github.com/ikaro-developer">
-    <img style="border-radius: 50%; overflow: hidden; width: 140px; height: 140px;" src="https://avatars.githubusercontent.com/u/167935329?v=4" alt="@Duck.Web" >
+    <img style="border-radius: 50%; overflow: hidden; width: 140px; height: 140px;" src="https://avatars.githubusercontent.com/u/167935329?v=4" alt="@_icaro_dev" >
   </a>
   <h1 align="center">E-coletas</h1>
 </p>
@@ -51,9 +51,9 @@
 
 # Autor
 
-## @Duck.Web
+## @\_icaro_dev
 
 <!-- INSTAGRAM -->
 <p align="left">
-<a href="https://www.instagram.com/duck.web/" target="blank"><img align="center" src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" height="30" width="120"/></a>
+<a href="https://www.instagram.com/_icaro_dev/" target="blank"><img align="center" src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" height="30" width="120"/></a>
 </p>

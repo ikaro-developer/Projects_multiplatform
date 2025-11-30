@@ -1,9 +1,10 @@
 <p align="center">
    <a href="https://github.com/duck-developer">
-      <img style="border-radius: 50%; overflow: hidden; width: 140px; height: 140px;" src="./readme/duck.web.png" alt="@Duck.Web" >
+      <img src="https://avatars.githubusercontent.com/u/167935329?v=4" alt="@Duck.Web" width="140" style="border-radius: 50%;" />
    </a>
-   <h1 align="center">GeneAll</h1>
 </p>
+
+   <h1 align="center">GeneAll</h1>
 
 [![License](https://img.shields.io/npm/l/react)](https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE)
 
@@ -75,10 +76,10 @@ Gerenciador de Doenças Raras é uma plataforma voltada para profissionais de sa
 
 # Autor
 
-## @Duck.Web
+## @\_icaro_dev
 
 <p align="left">
-   <a href="https://www.instagram.com/duck.web/" target="_blank">
+   <a href="https://www.instagram.com/_icaro_dev/" target="_blank">
       <img align="center" src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" height="30" width="120"/>
    </a>
 </p>

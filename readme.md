@@ -1,6 +1,6 @@
 <p align="center">
    <a href="https://github.com/duck-developer">
-      <img src="https://avatars.githubusercontent.com/u/167935329?v=4" alt="@Duck.Web" width="140" style="border-radius: 50%;" />
+      <img src="https://avatars.githubusercontent.com/u/167935329?v=4" alt="@_icaro_dev" width="140" style="border-radius: 50%;" />
    </a>
 </p>
 
@@ -62,22 +62,22 @@ Abaixo você encontra uma lista de projetos Multiplataforma desenvolvidos, com d
 ### Web
 
 <div  align="center">
-   <img src="./GeneAll_UnexMed/readme/web/image 1.png" alt="Ecoleta Web" height="120">
-   <img src="./GeneAll_UnexMed/readme/web/image 2.png" alt="Ecoleta Web" height="120">
-   <img src="./GeneAll_UnexMed/readme/web/image 3.png" alt="Ecoleta Web" height="120">
-   <img src="./GeneAll_UnexMed/readme/web/image 4.png" alt="Ecoleta Web" height="120">
-   <img src="./GeneAll_UnexMed/readme/web/image 5.png" alt="Ecoleta Web" height="120">
-   <img src="./GeneAll_UnexMed/readme/web/image 6.png" alt="Ecoleta Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 1.png" alt="Gene All Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 2.png" alt="Gene All Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 3.png" alt="Gene All Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 4.png" alt="Gene All Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 5.png" alt="Gene All Web" height="120">
+   <img src="./GeneAll_UnexMed/readme/web/image 6.png" alt="Gene All Web" height="120">
 </div>
 
 ### Mobile
 
 <div align="center">
-   <img src="./GeneAll_UnexMed/readme/mobile/image 1.jpeg" alt="Ecoleta Web" height="300">
-   <img src="./GeneAll_UnexMed/readme/mobile/image 2.jpeg" alt="Ecoleta Web" height="300">
-   <img src="./GeneAll_UnexMed/readme/mobile/image 3.jpeg" alt="Ecoleta Web" height="300">
-   <img src="./GeneAll_UnexMed/readme/mobile/image 4.jpeg" alt="Ecoleta Web" height="300">
-   <img src="./GeneAll_UnexMed/readme/mobile/image 5.jpeg" alt="Ecoleta Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 1.jpeg" alt="Gene All Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 2.jpeg" alt="Gene All Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 3.jpeg" alt="Gene All Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 4.jpeg" alt="Gene All Web" height="300">
+   <img src="./GeneAll_UnexMed/readme/mobile/image 5.jpeg" alt="Gene All Web" height="300">
 
 </div>
 
@@ -89,12 +89,43 @@ Abaixo você encontra uma lista de projetos Multiplataforma desenvolvidos, com d
 
 ---
 
+## 📊 Aureo
+
+<div align="center" style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+  <p style="max-width:600px; text-align:center;">
+O <strong>Aureo</strong> é um sistema moderno de controle financeiro pessoal, permitindo organizar despesas, receitas, categorias, comprovantes e transações de forma simples, rápida e segura.
+  </p>
+</div>
+
+### Desktop
+
+<div  align="center">
+   <img src="./Aureo/readme/desktop/image 1.png" alt="aureo desktop" width="200">
+   <img src="./Aureo/readme/desktop/image 2.png" alt="aureo desktop" width="200">
+   <img src="./Aureo/readme/desktop/image 3.png" alt="aureo desktop" width="200">
+   <img src="./Aureo/readme/desktop/image 4.png" alt="aureo desktop" width="200">
+   <img src="./Aureo/readme/desktop/image 5.png" alt="aureo desktop" width="200">
+   <img src="./Aureo/readme/desktop/image 6.png" alt="aureo desktop" width="200">
+   <img src="./Aureo/readme/desktop/image 7.png" alt="aureo desktop" width="200">
+   <img src="./Aureo/readme/desktop/image 8.png" alt="aureo desktop" width="200">
+</div>
+
+### Mobile
+
+<div align="center">
+   <a href="https://github.com/ikaro-developer/Projects_multiplatform/tree/main/Aureo">
+      <img src="https://img.shields.io/badge/GitHub-Acessar_Projeto-181717?style=for-the-badge&logo=github" alt="GitHub Link">
+   </a>
+</div>
+
+---
+
 # 👤 Autor
 
-### @Duck.Web
+### @\_icaro_dev
 
 <p align="left">
-   <a href="https://www.instagram.com/duck.web/" target="_blank">
+   <a href="https://www.instagram.com/_icaro_dev/" target="_blank">
       <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
    </a>
 </p>
