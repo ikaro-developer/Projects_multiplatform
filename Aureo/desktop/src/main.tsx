@@ -1,14 +1,25 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
 
+//ROUTES
+import ReactDOM from "react-dom/client";
+import { router } from "@/app/routes";
+import { RouterProvider } from "react-router-dom";
+
+//CONTEXT
+import { AppProvider } from "./context/Context";
+
+//CSS
 import "./index.css";
-import { ContextProvider } from "./context/Context";
+
+//COMNENTS
+import { Toaster } from "sonner";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <ContextProvider>
-      <App />
-    </ContextProvider>
+    <Toaster position="bottom-right" />
+
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   </React.StrictMode>
 );

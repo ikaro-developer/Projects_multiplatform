@@ -1,5 +1,4 @@
-import FinancasHome from "./Financas";
-import LivroHome from "./Livros";
-import SenhasHome from "./Senhas";
+import Home from "./Home";
+import NotFound from "./NotFound";
 
-export { FinancasHome, LivroHome, SenhasHome };
+export { Home, NotFound };
