@@ -4,11 +4,18 @@ export interface Password {
   username: string;
   password: string;
   url: string;
-  createdAt: Date;
-  updatedAt: Date;
-  lastUsed?: Date;
+  created_at: string;
+  updated_at: string;
   strength: "weak" | "medium" | "strong" | "very-strong";
 }
+
+export type PasswordFormData = {
+  name: string;
+  url?: string;
+  username: string;
+  password: string;
+  strength: "weak" | "medium" | "strong" | "very-strong";
+};
 
 export interface GeneratorSettings {
   length: number;

@@ -1,12 +1,9 @@
-import useSupabaseCategory from "@/features/finance-manager/services/supabaseCategory";
-import useSupabaseRules from "@/features/finance-manager/services/supabaseRules";
-import useSupabaseTransaction from "@/features/finance-manager/services/supabaseTransactions";
 import type {
   Category,
   RecurrenceRule,
   Transaction,
 } from "@/features/finance-manager/types/FinancasType";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 //INTERFACE
 
 interface InterfaceContextFinance {
@@ -52,20 +49,8 @@ export const ContextFinanceProvider = ({
   );
   const [rule, setRule] = useState<RecurrenceRule[]>(initialValue.rule);
 
-  const { getTransactions } = useSupabaseTransaction();
-  const { getCategory } = useSupabaseCategory();
-  const { getRule } = useSupabaseRules();
-
   const [selectedMonth, setSelectedMonth] = useState<Date>(new Date());
 
-  useEffect(() => {
-    async function load() {
-      setTransaction(await getTransactions());
-      setCategory(await getCategory());
-      setRule(await getRule());
-    }
-    load();
-  }, []);
   return (
     <ContextFinance.Provider
       value={{

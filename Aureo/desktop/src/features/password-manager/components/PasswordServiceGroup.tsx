@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, Globe, Users } from "lucide-react";
+
+//COMPONENTS
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -7,12 +8,22 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-
-import { Password } from "@/features/password-manager/types/SenhasType";
 import PasswordCard from "./PasswordCard";
-import usePassword from "@/features/password-manager/utils/usePassword";
 
-export function PasswordServiceGroup({ passwords }: { passwords: Password[] }) {
+//ICONS
+import { ChevronDown, ChevronUp, Globe, Users } from "lucide-react";
+
+//TYPE
+import { Password } from "../types/SenhasType";
+
+//UTILS
+import { getFaviconUrl } from "../utils/GetFavIconURL";
+
+export default function PasswordServiceGroup({
+  passwords,
+}: {
+  passwords: Password[];
+}) {
   // ==== AGRUPAMENTO ====
   const grouped = passwords.reduce((acc, p) => {
     if (!acc[p.name]) acc[p.name] = [];
@@ -21,7 +32,6 @@ export function PasswordServiceGroup({ passwords }: { passwords: Password[] }) {
   }, {} as Record<string, Password[]>);
 
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
-  const { getFaviconUrl } = usePassword();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">

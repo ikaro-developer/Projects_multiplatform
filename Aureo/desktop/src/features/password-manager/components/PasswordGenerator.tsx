@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Copy, RefreshCw, Check, Settings2 } from "lucide-react";
+
+//COMPONENTS
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
@@ -7,18 +8,19 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 
-import usePassword from "@/features/password-manager/utils/usePassword";
-import type { GeneratorSettings } from "@/features/password-manager/utils/usePassword";
+//ICONS
+import { Copy, RefreshCw, Check, Settings2 } from "lucide-react";
+
+//TYPE
+import type { GeneratorSettings } from "../types/SenhasType";
+
+//UTILS
+import { calculateStrengthPassWord } from "../utils/StrengthPassword";
+import { handleCopy } from "../utils/HadleCopy";
+import { usePasswordGenerator } from "../utils/GeneratePassword";
 
 export default function PasswordGenerator() {
-  const {
-    handleCopy,
-    generatePassword,
-    settings,
-    setSettings,
-    calculateStrengthPassWord,
-  } = usePassword();
-
+  const { generatePassword, setSettings, settings } = usePasswordGenerator();
   const [password, setPassword] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -32,7 +34,7 @@ export default function PasswordGenerator() {
   };
 
   function initialization() {
-    const newPassword = generatePassword(settings);
+    const newPassword = generatePassword();
     setPassword(newPassword);
     setCopied(false);
   }

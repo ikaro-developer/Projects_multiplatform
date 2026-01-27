@@ -12,9 +12,26 @@ import GastosFinancas from "./pages/GastosFinancas";
 import CategoriaFinanceiro from "./pages/CategoriaFinanceiro";
 import TransacoesFinanceiro from "./pages/TransacoesFinanceiro";
 import RuleFinanceiro from "./pages/RuleFinanceiro";
+import { useContext, useEffect } from "react";
+import useSupabaseTransaction from "./services/supabaseTransactions";
+import useSupabaseCategory from "./services/supabaseCategory";
+import useSupabaseRules from "./services/supabaseRules";
+import { ContextFinance } from "./context/FinanceContext";
 
 const FinancasHome = () => {
   const { valoresDoMes } = useFinance();
+  const { setTransaction, setCategory, setRule } = useContext(ContextFinance);
+  const { getTransactions } = useSupabaseTransaction();
+  const { getCategory } = useSupabaseCategory();
+  const { getRule } = useSupabaseRules();
+  useEffect(() => {
+    async function load() {
+      getTransactions().then(setTransaction);
+      getCategory().then(setCategory);
+      getRule().then(setRule);
+    }
+    load();
+  }, []);
 
   return (
     <section className="mt-6">

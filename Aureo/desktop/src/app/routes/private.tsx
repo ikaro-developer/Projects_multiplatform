@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from "react";
+import { useState, ReactNode } from "react";
 
 // import { auth } from '../services/Firebase'
 // import {onAuthStateChanged} from 'firebase/auth'
@@ -11,7 +11,7 @@ interface PrivateProps {
 
 export default function Private({ children }: PrivateProps) {
   //   const [loading, setLoading] = useState(true);
-  const [sign, setSign] = useState(true);
+  const [sign] = useState(true);
 
   // useEffect(()=>{
   //     async function checkLogin(){

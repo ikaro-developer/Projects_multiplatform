@@ -1,4 +1,13 @@
+//CONTEXT
 import { useContext, useState } from "react";
+import { ContextSenha } from "@/features/password-manager/context/SenhaContext";
+
+//COMPONENTS
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+
+//ICONS
 import {
   ArrowLeft,
   Globe,
@@ -7,25 +16,18 @@ import {
   EyeOff,
   Edit,
   Trash2,
-  Star,
-  Shield,
-  ShieldCheck,
-  ShieldAlert,
   Clock,
   ExternalLink,
   Key,
   User,
-  Calendar,
-  AlertTriangle,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+
+//TYPE
 import type { Password } from "@/features/password-manager/types/SenhasType";
+
+//LIBS
 import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
-import { ContextSenha } from "@/features/password-manager/context/SenhaContext";
+import { handleCopy } from "../utils/HadleCopy";
 
 interface PasswordDetailsProps {
   password: Password;
@@ -78,6 +80,7 @@ export default function PasswordDetails({
 // onCopy,
 PasswordDetailsProps) {
   const [showPassword, setShowPassword] = useState(false);
+  console.log(password.created_at);
 
   const getFaviconUrl = (url?: string) => {
     if (!url) return null;
@@ -186,7 +189,7 @@ PasswordDetailsProps) {
                 <Button
                   variant="outline"
                   size="icon"
-                  // onClick={() => onCopy(password.username, "Usuário")}
+                  onClick={() => handleCopy(password.username, "Usuário")}
                 >
                   <Copy className="h-4 w-4" />
                 </Button>
@@ -217,7 +220,7 @@ PasswordDetailsProps) {
                 <Button
                   variant="outline"
                   size="icon"
-                  // onClick={() => onCopy(password.password, "Senha")}
+                  onClick={() => handleCopy(password.password, "Senha")}
                 >
                   <Copy className="h-4 w-4" />
                 </Button>
@@ -276,9 +279,7 @@ PasswordDetailsProps) {
                   Criado em
                 </p>
                 <p className="font-medium">
-                  {format(password.createdAt, "dd 'de' MMMM 'de' yyyy", {
-                    locale: ptBR,
-                  })}
+                  {format(new Date(password.created_at), "dd/MM/yyyy")}
                 </p>
               </div>
               <div>
@@ -286,25 +287,9 @@ PasswordDetailsProps) {
                   Atualizado em
                 </p>
                 <p className="font-medium">
-                  {format(password.updatedAt, "dd 'de' MMMM 'de' yyyy", {
-                    locale: ptBR,
-                  })}
+                  {format(new Date(password.updated_at), "dd/MM/yyyy")}
                 </p>
               </div>
-              {password.lastUsed && (
-                <div className="col-span-2">
-                  <p className="text-sm text-[hsl(var(--muted-foreground ))]">
-                    Último uso
-                  </p>
-                  <p className="font-medium">
-                    {format(
-                      password.lastUsed,
-                      "dd 'de' MMMM 'de' yyyy 'às' HH:mm",
-                      { locale: ptBR }
-                    )}
-                  </p>
-                </div>
-              )}
             </div>
 
             <Separator />

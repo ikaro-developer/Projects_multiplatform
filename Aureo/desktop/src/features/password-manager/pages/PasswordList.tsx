@@ -1,21 +1,24 @@
+//CONTEXT
+import { useContext, useState } from "react";
+import { ContextSenha } from "../context/SenhaContext";
+
+//COMPONENTS
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { PasswordServiceGroup } from "../components";
+
+//ICONS
 import { AlertTriangle, Key, Lock, Plus, Search, Shield } from "lucide-react";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import { Input } from "@/components/ui/input";
-import { useContext, useState } from "react";
-import { PasswordServiceGroup } from "@/features/password-manager/components/PasswordServiceGroup";
-import usePassword from "@/features/password-manager/utils/usePassword";
-import { Button } from "@/components/ui/button";
-import { ContextSenha } from "@/features/password-manager/context/SenhaContext";
+//UTILS
 
 const PasswordList = () => {
-  const { setViewMode } = useContext(ContextSenha);
-  const { mockPasswords } = usePassword();
+  const { setViewMode, Password } = useContext(ContextSenha);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("all");
 
-  const filteredPasswords = mockPasswords.filter((p) => {
+  const filteredPasswords = Password.filter((p) => {
     const matchesSearch =
       p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -72,14 +75,14 @@ const PasswordList = () => {
         <TabsList>
           <TabsTrigger value="all" className="gap-2">
             <Key className="h-4 w-4" />
-            Todas ({mockPasswords.length})
+            Todas ({Password.length})
           </TabsTrigger>
 
           <TabsTrigger value="compromised" className="gap-2">
             <AlertTriangle className="h-4 w-4" />
             Atenção (
             {
-              mockPasswords.filter(
+              Password.filter(
                 (p) => p.strength === "weak" || p.strength === "medium"
               ).length
             }

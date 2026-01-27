@@ -1,4 +1,4 @@
-import { Password } from "@/features/password-manager/types/SenhasType";
+import { Password } from "../types/SenhasType";
 import React, { createContext, useState } from "react";
 
 // -------------- INTERFACES ----------------
@@ -8,16 +8,26 @@ export interface InterfaceContextSenha {
 
   selectedPassword: Password | null;
   setSelectedPassword: (password: Password | null) => void;
+
+  Password: Password[];
+  setPassword: React.Dispatch<React.SetStateAction<Password[]>>;
 }
 
 // -------------- CONTEXT -------------------
-export const ContextSenha = createContext<InterfaceContextSenha>({
+
+const initialValuePassword: InterfaceContextSenha = {
   viewMode: "list",
   setViewMode: () => {},
 
   selectedPassword: null,
   setSelectedPassword: () => {},
-});
+
+  Password: [],
+  setPassword: () => {},
+};
+
+export const ContextSenha =
+  createContext<InterfaceContextSenha>(initialValuePassword);
 
 // -------------- PROVIDER ------------------
 export const ContextSenhaProvider = ({
@@ -25,6 +35,9 @@ export const ContextSenhaProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  const [Password, setPassword] = useState<Password[]>(
+    initialValuePassword.Password
+  );
   const [viewMode, setViewMode] = useState<
     "list" | "details" | "form" | "generator"
   >("list");
@@ -40,6 +53,8 @@ export const ContextSenhaProvider = ({
         setViewMode,
         selectedPassword,
         setSelectedPassword,
+        Password,
+        setPassword,
       }}
     >
       {children}

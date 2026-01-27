@@ -1,62 +1,40 @@
-import React, { useMemo, useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../../components/ui/card";
+import { useEffect } from "react";
+
+//COMPONENTS
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+
+//ICONS
 import { Eye, EyeOff, Globe, Key, User } from "lucide-react";
-import { Input } from "../../../components/ui/input";
-import { Button } from "../../../components/ui/button";
-import { Label } from "../../../components/ui/label";
-import usePassword from "@/features/password-manager/utils/usePassword";
-import { Badge } from "../../../components/ui/badge";
 
-/* ===============================
-   PASSWORD STRENGTH FUNCTION
-================================ */
-
-type PasswordFormData = {
-  name: string;
-  url: string;
-  username: string;
-  password: string;
-};
+import usePassword from "../utils/usePassword";
 
 const PasswordAddForm = () => {
-  const { settings, calculateStrengthPassWord } = usePassword();
-  const [showPassword, setShowPassword] = useState(false);
+  const {
+    setShowPassword,
+    showPassword,
+    formData,
+    setFormData,
+    strength,
+    handleChange,
+    handleSubmitAddForm,
+  } = usePassword();
 
-  const [formData, setFormData] = useState<PasswordFormData>({
-    name: "",
-    url: "",
-    username: "",
-    password: "",
-  });
-
-  const strength = useMemo(() => {
-    return calculateStrengthPassWord(formData.password, settings);
-  }, [formData.password]);
-
-  function handleChange(field: keyof PasswordFormData, value: string) {
+  useEffect(() => {
     setFormData((prev) => ({
       ...prev,
-      [field]: value,
+      strength: strength.level,
     }));
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-
-    console.log("Dados enviados:", formData);
-
-    // 🔗 integração futura com API
-    // await passwordService.create(formData);
-  }
-
+  }, [strength]);
   return (
     <section className="mt-4">
-      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
+      <form
+        onSubmit={handleSubmitAddForm}
+        className="max-w-2xl mx-auto space-y-6"
+      >
         {/* INFORMAÇÕES BÁSICAS */}
         <Card className="py-6">
           <CardHeader>

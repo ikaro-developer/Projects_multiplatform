@@ -1,18 +1,21 @@
+//CONTEXT
 import { useContext, useState } from "react";
-import {
-  Copy,
-  Eye,
-  EyeOff,
-  Globe,
-  AlertTriangle,
-  RefreshCw,
-} from "lucide-react";
+import { ContextSenha } from "../context/SenhaContext";
+
+//COMPONENTS
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import type { Password } from "@/features/password-manager/types/SenhasType";
-import usePassword from "@/features/password-manager/utils/usePassword";
-import { ContextSenha } from "@/features/password-manager/context/SenhaContext";
+
+//ICONS
+import { Copy, Eye, EyeOff, Globe } from "lucide-react";
+
+//TYPE
+import type { Password } from "../types/SenhasType";
+
+//UTILS
+import { handleCopy } from "../utils/HadleCopy";
+import { getStrengthInfo } from "../utils/StrengthPassword";
 
 interface PasswordCardProps {
   password: Password;
@@ -21,9 +24,7 @@ interface PasswordCardProps {
 
 export default function PasswordCard({ password, favicon }: PasswordCardProps) {
   const { setViewMode, setSelectedPassword } = useContext(ContextSenha);
-  const { handleCopy, getStrengthInfo } = usePassword();
   const [showPassword, setShowPassword] = useState(false);
-
   const {
     label,
     color: strengthColor,

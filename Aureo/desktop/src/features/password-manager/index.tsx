@@ -1,13 +1,19 @@
-import PasswordForm from "./pages/PasswordForm";
-import PasswordList from "./pages/PasswordList";
-import PasswordDetails from "./pages/PasswordDetails";
+import { PasswordForm, PasswordList, PasswordDetails } from "./pages";
 
-import { useContext } from "react";
-import { ContextSenha } from "@/features/password-manager/context/SenhaContext";
+import { useContext, useEffect } from "react";
+import { ContextSenha } from "./context/SenhaContext";
+import useSupabasePassword from "./services/SupabasePassword";
 
 export default function SenhasHome() {
-  const { viewMode, selectedPassword } = useContext(ContextSenha);
+  const { viewMode, selectedPassword, setPassword } = useContext(ContextSenha);
+  const { getPassword } = useSupabasePassword();
 
+  useEffect(() => {
+    async function load() {
+      getPassword().then(setPassword);
+    }
+    load();
+  }, []);
   return (
     <div className="flex-1 p-6 space-y-6">
       {viewMode === "list" && <PasswordList />}
