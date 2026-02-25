@@ -7,12 +7,20 @@ import {
   FlatList,
 } from "react-native";
 import { MaterialIcons, Feather } from "@expo/vector-icons";
-import { ContextPassword } from "../../context/PasswordContext";
+import { ContextPassword } from "@/features/password-manager/context/PasswordContext";
 import styles from "./styles";
-import PasswordServiceGroup from "../../components/PasswordServiceGroup";
-import { useFilterPassword } from "../../utils/FilteredPassword";
+import PasswordServiceGroup from "@/features/password-manager/components/PasswordServiceGroup";
+import { useFilterPassword } from "@/features/password-manager/utils/FilteredPassword";
 
+
+import { useNavigation } from "@react-navigation/core";
+import { StackNavigationProp } from '@react-navigation/stack';
+import { NavigationTypeStack } from "../../types/navigation";
+import { Context } from "@/context/Context";
+type ScreenListNavigationProp = StackNavigationProp<NavigationTypeStack, 'ScreenList'>;
 const PasswordList = () => {
+  const navigation = useNavigation<ScreenListNavigationProp>();
+  const { setNavigationOpenHeader } = useContext(Context);
   const { Password } = useContext(ContextPassword);
   const {
     activeTab,
@@ -22,7 +30,6 @@ const PasswordList = () => {
     setSearchQuery,
     compromisedCount,
   } = useFilterPassword();
-
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -34,7 +41,10 @@ const PasswordList = () => {
 
         <TouchableOpacity
           style={styles.button}
-          // onPress={() => setViewMode("form")}
+          onPress={() => {
+          navigation.navigate("ScreenForm" )
+          setNavigationOpenHeader(false);
+          }}
         >
           <MaterialIcons name="add" size={20} color="#fff" />
           <Text style={styles.buttonText}>Nova Senha</Text>
@@ -58,7 +68,7 @@ const PasswordList = () => {
           style={[styles.tabButton, activeTab === "all" && styles.tabActive]}
           onPress={() => setActiveTab("all")}
         >
-          <Text style={styles.tabText}>Todas ({Password.length})</Text>
+          <Text style={[styles.tabText, activeTab === "all" && { color: "#fff" }]}>Todas ({Password.length})</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -68,12 +78,13 @@ const PasswordList = () => {
           ]}
           onPress={() => setActiveTab("compromised")}
         >
-          <Text style={styles.tabText}>Atenção ({compromisedCount})</Text>
+          <Text style={[styles.tabText, activeTab === "compromised" && { color: "#fff" }]}>Atenção ({compromisedCount})</Text>
         </TouchableOpacity>
       </View>
 
       {/* Conteúdo */}
       <FlatList
+
         data={[{ key: "content" }]}
         keyExtractor={(item) => item.key}
         showsVerticalScrollIndicator={false}

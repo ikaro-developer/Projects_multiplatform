@@ -8,6 +8,9 @@ export interface InterfaceContextPassword {
 
   Password: Password[];
   setPassword: React.Dispatch<React.SetStateAction<Password[]>>;
+
+    navigationOpenHeader: boolean;
+  setNavigationOpenHeader: (password: boolean) => void;
 }
 
 // -------------- CONTEXT -------------------
@@ -18,6 +21,8 @@ const initialValuePassword: InterfaceContextPassword = {
 
   Password: [],
   setPassword: () => {},
+  navigationOpenHeader: true,
+  setNavigationOpenHeader: () => {},
 };
 
 export const ContextPassword =
@@ -40,13 +45,20 @@ export const ContextPasswordProvider = ({
     null
   );
 
+  const [navigationOpenHeader, setNavigationOpenHeader] = useState<boolean>(
+    initialValuePassword.navigationOpenHeader
+  );
+
   return (
     <ContextPassword.Provider
       value={{
+        
         selectedPassword,
         setSelectedPassword,
         Password,
         setPassword,
+        navigationOpenHeader,
+        setNavigationOpenHeader,
       }}
     >
       {children}

@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   container: {
     gap: 12,
+    paddingBottom:60
   },
   card: {
     backgroundColor: "#fff",

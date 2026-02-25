@@ -11,10 +11,10 @@ import { Feather, MaterialIcons } from "@expo/vector-icons";
 import { Password } from "@/features/password-manager/types/passwordTypes";
 import { getFaviconUrl } from "@/features/password-manager/utils/GetFavIconURL";
 import styles from "./styles";
-import { useGroupPassword } from "../../utils/GroupPassword";
+import { useGroupPassword } from "@/features/password-manager/utils/GroupPassword";
 import PasswordCard from "../PasswordCard";
 
-// Habilitar animação no Android
+
 if (Platform.OS === "android") {
   UIManager.setLayoutAnimationEnabledExperimental?.(true);
 }

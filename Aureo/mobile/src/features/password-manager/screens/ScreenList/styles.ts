@@ -5,9 +5,12 @@ export default StyleSheet.create({
     flex: 1,
     padding: 16,
     backgroundColor: "#f5f5f5",
+
   },
   header: {
     marginBottom: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   titleContainer: {
     flexDirection: "row",
@@ -58,6 +61,7 @@ export default StyleSheet.create({
   },
   tabActive: {
     backgroundColor: "#4f46e5",
+    color: "#fff",
   },
   tabText: {
     color: "#000",

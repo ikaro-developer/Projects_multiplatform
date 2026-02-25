@@ -6,27 +6,42 @@ import { ContextPassword } from "../../context/PasswordContext";
 import { Password } from "../../types/passwordTypes";
 import { getStrengthInfo } from "../../utils/StrengthPassword";
 import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
+
+import { StackNavigationProp } from '@react-navigation/stack';
+import { NavigationTypeStack } from "../../types/navigation";
+import { useToast } from "@/components/Toast";
 
 interface PasswordCardProps {
   password: Password;
   favicon: string;
 }
 
+
 export default function PasswordCard({ password, favicon }: PasswordCardProps) {
+  const { showToast } = useToast();
   const { setSelectedPassword } = useContext(ContextPassword);
-
   const [showPassword, setShowPassword] = useState(false);
-
   const { label, color: strengthColor } = getStrengthInfo(password.strength);
+
+  type ScreenListNavigationProp = StackNavigationProp<
+    NavigationTypeStack,
+    'ScreenList'
+  >;
+  const navigation = useNavigation<ScreenListNavigationProp>();
 
   async function handleCopy() {
     await Clipboard.setStringAsync(password.password);
-    Alert.alert("Copiado", "Senha copiada para a área de transferência");
+    showToast({
+      message: "Senha copiada para a área de transferência",
+      type: 'success',
+      duration: 4000,
+    });
   }
 
-  function handlePasswordClick() {
-    setSelectedPassword(password);
-    // setViewMode("details");
+  async function handlePasswordClick() {
+    await setSelectedPassword(password);
+    navigation.navigate("ScreenDetails");
   }
 
   return (
@@ -79,7 +94,7 @@ export default function PasswordCard({ password, favicon }: PasswordCardProps) {
             >
               <Feather
                 name={showPassword ? "eye-off" : "eye"}
-                size={18}
+                size={20}
                 color="#444"
               />
             </TouchableOpacity>
@@ -90,7 +105,7 @@ export default function PasswordCard({ password, favicon }: PasswordCardProps) {
                 handleCopy();
               }}
             >
-              <Feather name="copy" size={18} color="#444" />
+              <Feather name="copy" size={20} color="#444" />
             </TouchableOpacity>
           </View>
         </View>
@@ -104,8 +119,8 @@ export default function PasswordCard({ password, favicon }: PasswordCardProps) {
             strengthColor === "weak"
               ? styles.badgeWeak
               : strengthColor === "medium"
-              ? styles.badgeMedium
-              : styles.badgeStrong,
+                ? styles.badgeMedium
+                : styles.badgeStrong,
           ]}
         >
           <MaterialIcons name="security" size={14} color="#fff" />
